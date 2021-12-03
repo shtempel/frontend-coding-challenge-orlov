@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-import theme from '../theme';
 
-const H6 = styled.h6`
+import theme from 'theme';
+
+export const H6 = styled.h6`
   ${theme.typography.h6};
-  margin: 0;
-  margin-bottom: ${theme.spacing(4)};
+  margin: 0 0 ${theme.spacing(4)} 0;
 `;
-
-export default H6;

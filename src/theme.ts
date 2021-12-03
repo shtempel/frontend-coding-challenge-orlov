@@ -22,10 +22,13 @@ const theme = {
       alt2: '#484848'
     },
     text: {
-      primary: '#FFF'
+      primary: '#FFF',
+      alt2: '#484848'
     }
   },
   spacing: (multiplier = 1) => `${4 * multiplier}px`,
+  tournamentWidth: '300px',
+  listMargin: '0 24px 24px 0',
   borderRadius: '4px',
   typography: {
     h1: {

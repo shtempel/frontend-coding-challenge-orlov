@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { FC, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import GlobalStyle from './GlobalStyle';
-import store from './store';
-import Container from './components/Container';
-import H4 from './components/H4';
+import { Provider, useDispatch } from 'react-redux';
 
-const App: React.FC = () => {
+import store from './store';
+import { Container, H4, Tournaments, GlobalStyle, ToolBar } from 'components';
+import { getTournaments } from 'thunk/tournaments';
+import ErrorBoundary from './components/tournaments/ErrorBoundary';
+
+const App: FC = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTournaments());
+  }, [dispatch]);
+
   return (
     <Container>
       <H4>FACEIT Tournaments</H4>
+      <ToolBar />
+      <ErrorBoundary dispatch={dispatch}>
+        <Tournaments />
+      </ErrorBoundary>
     </Container>
   );
 };
